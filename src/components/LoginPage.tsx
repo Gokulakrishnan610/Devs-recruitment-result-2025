@@ -151,23 +151,23 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
           <div className="grid  justify-center gap-8">
             {/* Why Choose DEVS REC Section */}
             <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 border border-gray-600/20" data-aos="fade-right" data-aos-delay="600">
-              <h3 className="text-2xl font-bold text-white mb-4 text-center" data-aos="fade-up" data-aos-delay="800">✨ Why Choose DEVS REC?</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center" data-aos="fade-up" data-aos-delay="800">The DEVS REC Experience✨</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1000">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <span className="text-gray-300">Cutting-edge technical challenges</span>
+                  <span className="text-gray-300">Gain real-world experience from student-led initiatives</span>
                 </div>
                 <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1100">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <span className="text-gray-300">Innovation-driven environment</span>
+                  <span className="text-gray-300">Build solutions through hands-on projects and workshops</span>
                 </div>
                 <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1200">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <span className="text-gray-300">Continuous learning opportunities</span>
+                  <span className="text-gray-300">⁠Learn and grow with like-minded peers</span>
                 </div>
                 <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1300">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                  <span className="text-gray-300">Collaborative team culture</span>
+                  <span className="text-gray-300">⁠Explore opportunities to lead and make a lasting impact</span>
                 </div>
               </div>
             </div>
