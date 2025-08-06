@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
+
+
+import React, { useState, useEffect } from 'react';
 import { LogIn, Users, Code, Cpu, Database, Globe } from 'lucide-react';
+import Particles from './Particles';
+import TextCursor from './TextCursor';
+import TextPressure from './TextPressure';
+import CurvedLoop from './CurvedLoop';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface LoginPageProps {
   onLogin: (rollNo: string) => void;
@@ -9,6 +17,16 @@ interface LoginPageProps {
 export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => {
   const [rollNo, setRollNo] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,74 +40,76 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.1)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-        
-        {/* Floating Tech Icons */}
-        <div className="absolute top-20 left-20 text-slate-600 opacity-20 animate-pulse">
-          <Code size={40} />
-        </div>
-        <div className="absolute top-40 right-32 text-slate-600 opacity-20 animate-pulse" style={{ animationDelay: '1s' }}>
-          <Cpu size={35} />
-        </div>
-        <div className="absolute bottom-40 left-32 text-slate-600 opacity-20 animate-pulse" style={{ animationDelay: '2s' }}>
-          <Database size={30} />
-        </div>
-        <div className="absolute bottom-20 right-20 text-slate-600 opacity-20 animate-pulse" style={{ animationDelay: '0.5s' }}>
-          <Globe size={45} />
+        {/* Particles Background */}
+        <div style={{ width: '100%', height: '100%', position: 'absolute' }}>
+          <Particles
+            particleColors={['#ffffff', '#ffffff']}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover={true}
+            alphaParticles={true}
+            disableRotation={false}
+          />
         </div>
         
         {/* Gradient Overlays */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-600/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-cyan-600/20 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-cyan-600/10 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl"></div> */}
+        {/* <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-white/5 to-transparent rounded-full blur-3xl"></div> */}
+        {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-white/3 via-white/2 to-white/3 rounded-full blur-3xl"></div> */}
       </div>
 
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-md w-full">
-          {/* Header Section */}
-          <div className="text-center mb-12">
-            {/* Logo */}
-            <div className="relative mb-6">
-              <div className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl w-24 h-24 flex items-center justify-center mx-auto shadow-2xl border border-slate-600">
-                <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  DR
-                </div>
-              </div>
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-400/20 rounded-2xl blur-xl"></div>
-            </div>
-            
-            {/* Title */}
-            <h1 className="text-5xl font-bold mb-3">
-              <span className="bg-gradient-to-r from-white via-slate-200 to-slate-300 bg-clip-text text-transparent">
-                DEVS
-              </span>
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent ml-2">
-                REC
-              </span>
-            </h1>
-            
-            {/* Subtitle */}
-            <div className="space-y-2">
-              <p className="text-slate-300 text-xl font-medium">Recruitment Results Portal</p>
-              <p className="text-slate-400 text-sm">Technical Excellence • Innovation • Growth</p>
-            </div>
+      {/* TextCursor Overlay */}
+      {/* <div className="absolute inset-0 z-25">
+        <TextCursor
+          text="DEVS"
+          delay={0}
+          spacing={100}
+          followMouseDirection={true}
+          randomFloat={true}
+          exitDuration={0.3}
+          removalInterval={20}
+          maxPoints={10}
+        />
+      </div> */}
+
+
+
+      <div className="relative z-10 min-h-screen flex flex-col justify-center p-8">
+        {/* Hero Section */}
+        <div className="text-center mb-4" data-aos="fade-down" data-aos-delay="200">
+          <div className="h-80 mb-2 flex items-center justify-center">
+            <TextPressure
+              text="DEVS REC"
+              flex={true}
+              alpha={false}
+              stroke={false}
+              width={true}
+              weight={true}
+              italic={true}
+              textColor="#ffffff"
+              strokeColor="#ff0000"
+              minFontSize={48}
+            />
           </div>
+        </div>
 
-          {/* Login Form */}
-          <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-slate-700/50">
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold text-white mb-2">Access Your Results</h2>
-              <p className="text-slate-400 text-sm">Enter your roll number to check your recruitment status</p>
+        {/* Main Content Grid */}
+        <div className="max-w-6xl mx-auto space-y-8">
+          {/* Access Your Results Section - Full Width */}
+          <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-gray-600/20" data-aos="fade-up" data-aos-delay="400">
+            <div className="text-center mb-8" data-aos="fade-up" data-aos-delay="600">
+              <h2 className="text-3xl font-bold text-white mb-2">Access Your Results</h2>
+              <p className="text-gray-400">Enter your roll number to check your recruitment status</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="rollNo" className="block text-slate-300 text-sm font-medium mb-3">
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6" data-aos="fade-up" data-aos-delay="800">
+              <div data-aos="fade-up" data-aos-delay="1000">
+                <label htmlFor="rollNo" className="block text-gray-300 text-sm font-medium mb-3">
                   Roll Number
                 </label>
                 <div className="relative">
@@ -98,18 +118,19 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
                     type="text"
                     value={rollNo}
                     onChange={(e) => setRollNo(e.target.value)}
-                    placeholder="e.g., 21CSE001"
-                    className="w-full px-4 py-4 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 text-lg font-mono"
+                    placeholder="e.g., 2xxxxxxxxxx"
+                    className="w-full px-6 py-4 rounded-xl bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 text-lg font-mono"
                     required
                   />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/0 via-cyan-400/0 to-cyan-400/0 focus-within:from-cyan-400/10 focus-within:via-transparent focus-within:to-blue-400/10 pointer-events-none transition-all duration-300"></div>
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-400/0 via-cyan-400/0 to-cyan-400/0 focus-within:from-cyan-400/10 focus-within:via-transparent focus-within:to-cyan-400/10 pointer-events-none transition-all duration-300"></div>
                 </div>
               </div>
 
               <button
                 type="submit"
                 disabled={loading || !rollNo.trim()}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-4 px-6 rounded-xl font-semibold flex items-center justify-center space-x-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-cyan-500/25 transform hover:scale-[1.02] active:scale-[0.98]"
+                className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white py-4 px-6 rounded-xl font-semibold flex items-center justify-center space-x-3 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-cyan-500/25 transform hover:scale-[1.02] active:scale-[0.98]"
+                data-aos="fade-up" data-aos-delay="1200"
               >
                 {loading ? (
                   <>
@@ -126,29 +147,70 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
             </form>
           </div>
 
-          {/* Hall of Selection Link */}
-          <div className="text-center mt-8">
-            <button
-              onClick={onViewHall}
-              className="group inline-flex items-center space-x-2 text-slate-400 hover:text-cyan-400 transition-all duration-300 px-4 py-2 rounded-lg hover:bg-slate-800/30"
-            >
-              <Users size={18} className="group-hover:scale-110 transition-transform duration-300" />
-              <span className="font-medium">View Hall of Selection</span>
-            </button>
-          </div>
+          {/* Two Column Layout for Features */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Why Choose DEVS REC Section */}
+            <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 border border-gray-600/20" data-aos="fade-right" data-aos-delay="600">
+              <h3 className="text-2xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="800">✨ Why Choose DEVS REC?</h3>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1000">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <span className="text-gray-300">Cutting-edge technical challenges</span>
+                </div>
+                <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1100">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <span className="text-gray-300">Innovation-driven environment</span>
+                </div>
+                <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1200">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <span className="text-gray-300">Continuous learning opportunities</span>
+                </div>
+                <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1300">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                  <span className="text-gray-300">Collaborative team culture</span>
+                </div>
+              </div>
+            </div>
 
-          {/* Footer */}
-          <div className="text-center mt-12 space-y-2">
-            <p className="text-slate-500 text-xs">
-              © 2024 DEVS REC • Technical Club
-            </p>
-            <div className="flex justify-center space-x-4 text-slate-600">
-              <Code size={16} />
-              <Cpu size={16} />
-              <Database size={16} />
-              <Globe size={16} />
+            {/* Ready to Join Section */}
+            <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 border border-gray-600/20" data-aos="fade-left" data-aos-delay="600">
+              <h3 className="text-2xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="800">🚀 Ready to Join?</h3>
+              <p className="text-gray-300 mb-4" data-aos="fade-up" data-aos-delay="1000">Check your recruitment status and discover your role in our technical community.</p>
+              <button
+                onClick={onViewHall}
+                className="group inline-flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300 px-6 py-3 rounded-xl hover:bg-gray-800/50 border border-gray-600 hover:border-gray-500"
+                data-aos="fade-up" data-aos-delay="1200"
+              >
+                <Users size={20} className="group-hover:scale-110 transition-transform duration-300" />
+                <span className="font-medium">View Hall of Selection</span>
+              </button>
             </div>
           </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-16 space-y-4" data-aos="fade-up" data-aos-delay="800">
+          <div className="flex justify-center space-x-6 text-gray-500">
+            <div className="flex items-center space-x-2" data-aos="fade-up" data-aos-delay="1000">
+              <Code size={18} />
+              <span className="text-sm">Development</span>
+            </div>
+            <div className="flex items-center space-x-2" data-aos="fade-up" data-aos-delay="1100">
+              <Cpu size={18} />
+              <span className="text-sm">Innovation</span>
+            </div>
+            <div className="flex items-center space-x-2" data-aos="fade-up" data-aos-delay="1200">
+              <Database size={18} />
+              <span className="text-sm">Technology</span>
+            </div>
+            <div className="flex items-center space-x-2" data-aos="fade-up" data-aos-delay="1300">
+              <Globe size={18} />
+              <span className="text-sm">Global</span>
+            </div>
+          </div>
+          <p className="text-gray-500 text-sm" data-aos="fade-up" data-aos-delay="1400">
+            © 2025 DEVS REC • Technical Club
+          </p>
         </div>
       </div>
     </div>

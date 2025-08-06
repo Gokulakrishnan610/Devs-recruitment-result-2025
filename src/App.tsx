@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LoginPage } from './components/LoginPage';
 import { ScratchCard } from './components/ScratchCard';
 import { HallOfSelection } from './components/HallOfSelection';
+import SplashScreen from './components/SplashScreen';
 
 type AppState = 'login' | 'scratch-card' | 'hall-of-selection';
 
@@ -18,6 +19,7 @@ interface NotSelectedStudent {
 }
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [currentState, setCurrentState] = useState<AppState>('login');
   const [currentStudent, setCurrentStudent] = useState<{
     isSelected: boolean;
@@ -68,6 +70,7 @@ function App() {
   };
 
   const handleBack = () => {
+    console.log('Back button clicked, navigating to login');
     setCurrentState('login');
     setCurrentStudent(null);
   };
@@ -75,6 +78,14 @@ function App() {
   const handleViewHall = () => {
     setCurrentState('hall-of-selection');
   };
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
+  if (showSplash) {
+    return <SplashScreen onComplete={handleSplashComplete} />;
+  }
 
   if (currentState === 'scratch-card' && currentStudent) {
     return (
