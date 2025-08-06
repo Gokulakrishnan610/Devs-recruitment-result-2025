@@ -148,10 +148,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
           </div>
 
           {/* Two Column Layout for Features */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid  justify-center gap-8">
             {/* Why Choose DEVS REC Section */}
             <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 border border-gray-600/20" data-aos="fade-right" data-aos-delay="600">
-              <h3 className="text-2xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="800">✨ Why Choose DEVS REC?</h3>
+              <h3 className="text-2xl font-bold text-white mb-4 text-center" data-aos="fade-up" data-aos-delay="800">✨ Why Choose DEVS REC?</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3" data-aos="fade-up" data-aos-delay="1000">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
@@ -172,19 +172,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
               </div>
             </div>
 
-            {/* Ready to Join Section */}
-            <div className="bg-transparent backdrop-blur-sm rounded-2xl p-8 border border-gray-600/20" data-aos="fade-left" data-aos-delay="600">
-              <h3 className="text-2xl font-bold text-white mb-4" data-aos="fade-up" data-aos-delay="800">🚀 Ready to Join?</h3>
-              <p className="text-gray-300 mb-4" data-aos="fade-up" data-aos-delay="1000">Check your recruitment status and discover your role in our technical community.</p>
-              <button
-                onClick={onViewHall}
-                className="group inline-flex items-center space-x-3 text-gray-300 hover:text-white transition-all duration-300 px-6 py-3 rounded-xl hover:bg-gray-800/50 border border-gray-600 hover:border-gray-500"
-                data-aos="fade-up" data-aos-delay="1200"
-              >
-                <Users size={20} className="group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-medium">View Hall of Selection</span>
-              </button>
-            </div>
           </div>
         </div>
 
