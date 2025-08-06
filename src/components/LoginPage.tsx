@@ -118,7 +118,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onViewHall }) => 
                     type="text"
                     value={rollNo}
                     onChange={(e) => setRollNo(e.target.value)}
-                    placeholder="e.g., 2xxxxxxxxxx"
+                    placeholder="e.g., 24xxxxxx"
                     className="w-full px-6 py-4 rounded-xl bg-gray-800/50 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all duration-300 text-lg font-mono"
                     required
                   />
