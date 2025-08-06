@@ -1,0 +1,38 @@
+[
+  {
+    "roll_no": "21CSR001",
+    "name": "Arjun K",
+    "role": "Design Lead",
+    "description": "Leading UI/UX initiatives and visual design strategy"
+  },
+  {
+    "roll_no": "21ITR034",
+    "name": "Priya M",
+    "role": "Tech Head",
+    "description": "Overseeing technical development and innovation"
+  },
+  {
+    "roll_no": "21CSE057",
+    "name": "Rahul D",
+    "role": "Event Coordinator",
+    "description": "Managing events and community engagement"
+  },
+  {
+    "roll_no": "21ECE089",
+    "name": "Neha S",
+    "role": "Marketing Head",
+    "description": "Leading marketing strategies and outreach"
+  },
+  {
+    "roll_no": "21MECH045",
+    "name": "Karthik R",
+    "role": "Operations Manager",
+    "description": "Streamlining operations and workflow management"
+  },
+  {
+    "roll_no": "21EEE023",
+    "name": "Divya P",
+    "role": "Content Lead",
+    "description": "Creating engaging content and documentation"
+  }
+]
